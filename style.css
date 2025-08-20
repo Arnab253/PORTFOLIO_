@@ -1,0 +1,479 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d2f8f1;
+  color: #333;
+  line-height: 1.6;
+  box-sizing: border-box; /* Added for consistent box model */
+  padding-bottom: 70px; /* Add padding to the bottom of the body equal to footer height */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(60, 186, 159); /* Changed to lightseagreen */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 10px 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color:#d2f8f1; /* Changed logo color for better contrast */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color:#d2f8f1; /* Changed nav link color for better contrast */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: rgb(8, 100, 161);
+}
+
+.burger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff; /* Changed burger icon color for better contrast */
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background-color: rgb(60, 186, 159);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .burger {
+    display: block;
+  }
+}
+
+#about p {
+  font-family: "Georgia", "Times New Roman", serif; /* Change font */
+  font-size: 18px;             /* Adjust size */
+  line-height: 1.8;            /* More readable */
+  color: #333;                 /* Text color */
+  text-align: justify;         /* Neat justified alignment */
+  margin: 0 auto;              /* Center with margin */
+  max-width: 800px;            /* Restrict width */
+  padding: 0 20px;             /* Left & right inner gap */
+}
+
+
+/* Buttons */
+.btn {
+  background-color: #ff3399;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #e60073;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;  /* ROUND CIRCLE */
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+#typing {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+  border-right: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  /* Removed fixed height to allow text to expand */
+  min-height: 35px; /* Added min-height to ensure space for text */
+  vertical-align: middle; /* Aligns the typing text better */
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+section {
+  padding: 30px 20px; /* Reduced padding from 60px to 30px */
+  text-align: center;
+  margin-bottom: 0px; /* Reduced margin from 50px to 0px */
+}
+
+.project {
+  margin-top: 20px;
+}
+
+.btn-download {
+  background: rgb(22, 146, 228);
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 10px; /* Reduced margin from 20px to 10px */
+}
+
+.btn-download:hover {
+  background: rgb(10, 117, 188);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgb(60, 186, 159);
+  color: rgb(55, 3, 13);
+}
+
+html {
+  scroll-padding-top: 80px; /* Adjust based on navbar height */
+}
+
+.contact {
+  text-align: center;
+  padding: 20px 20px;
+  background-color: #f8f8f8;
+  margin-bottom: 50px; /* This is for fixed footer pushing content up, keep as is for now */
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 28px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 30px;
+}
+
+.social-icons a {
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.3);
+  color: #007bff;
+}
+
+.sub-text {
+  font-size: 30px;
+  color: rgb(68, 2, 58);
+  margin-top: 5px; /* Reduced margin from 10px to 5px */
+  margin-bottom: 5px; /* Added this to reduce space after "welcome to my portfolio website" */
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-creativity {
+  background: #e75d94;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 10px; /* Reduced margin from 20px to 10px */
+  margin-bottom: 10px; /* Added this to reduce space after creative button */
+}
+
+.btn-creativity:hover {
+  background: #b61b59;
+}
+/* Contact Page */
+.contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 50px; /* Added margin to push content above the fixed footer */
+}
+
+.contact-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: rgb(40, 177, 148);
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Social Icons Vertical (Right Side) */
+.vertical-socials {
+  position: fixed; /* Keep fixed for desktop */
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .vertical-socials {
+    position: relative; /* Change to relative for mobile */
+    top: auto;
+    right: auto;
+    transform: none;
+    flex-direction: row; /* Display horizontally */
+    justify-content: center; /* Center horizontally */
+    margin-top: 30px; /* Add some space from the form */
+    margin-bottom: 20px;
+  }
+}
+
+.vertical-socials a {
+  color:rgb(40, 177, 148);
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.vertical-socials a:hover {
+  transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+  background-color: rgb(60, 186, 159); /* Changed to lightseagreen */
+  color:#d2f8f1; /* Changed color to white for better contrast */
+  text-align: center;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  height: 50px; /* Explicitly set footer height */
+  z-index: 100; /* Ensure footer is above other elements */
+}
+
+/* New content wrapper for pages with fixed footer */
+.content-wrapper {
+  min-height: calc(100vh - 50px); /* 50px is footer height */
+  margin-bottom: 50px; /* Same as footer height */
+  box-sizing: border-box;
+}
+
+/* Typing Text Animation */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #ff3399;
+  animation: typing 3s steps(30, end) infinite, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% { width: 0 }
+  50% { width: 100% }
+  100% { width: 0 }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Slide-in Animation */
+.slide-in-right {
+  animation: slideRight 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for education/skills boxes */
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box.animate-in {
+  animation: slideInFromBottom 0.6s ease-out forwards;
+}
+
+.box.animate-in:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Centering text inside the box (Education and Skills buttons) */
+.box {
+  display: flex; /* Use flexbox for centering content */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  opacity: 0; /* Initially hidden for animation */
+}
+
+
+/* Typing effect text (applies to both "Hey, I'm Arnab" and "I'm a Full Stack Developer") */
+/* About Me heading */
+#about h2 {
+  color: #eb0e84; /* Red */
+
+}
+
+/* Hero sub-text (Welcome to my portfolio website) */
+.hero .sub-text {
+  color: #457b9d; /* Blue */
+}
+
+/* Typing effect text (applies to both "Hey, I'm Arnab" and "I'm a Full Stack Developer") */
+#typing {
+  color: #1d3557; /* Dark navy */
+}
+#about {
+  padding-top: 0px;
+  margin-top: -10px; /* pulls it even closer */
+}
+/* Projects Section */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.project-box {
+  border: 2px solid #4b0082;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 12px;
+  background-color: #fff0fa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.project-box:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.project-box:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.project-box:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.project-box p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-fill {
+  background:rgb(248, 104, 128);
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 10px; /* Reduced margin from 20px to 10px */
+}
+
+.btn-fill:hover {
+  background: rgb(219, 14, 82);
+}

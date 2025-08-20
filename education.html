@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education & Skills</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Container to push footer down */
+    .content-wrapper {
+      min-height: 100vh;
+      padding-bottom: 60px; /* height of footer */
+      box-sizing: border-box;
+      margin-bottom: 70px; /* Added to push content above the fixed footer */
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .main-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .box-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .box {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 20px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      opacity: 0; /* Initially hidden for animation */
+      text-align: center; /* Centered text for the button */
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+    }
+
+    .sub-boxes {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+      width: 100%; /* Ensure sub-boxes take full width */
+      max-width: 600px; /* Limit max width for better readability */
+    }
+
+    .sub-box {
+      background: #f1f1f1;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: left; /* Align text within sub-boxes to left */
+    }
+
+    .active + .sub-boxes {
+      display: flex;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .box-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .box {
+        width: 80%; /* Adjust width for better centering on small screens */
+        text-align: center;
+      }
+    }
+
+
+  .navbar {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Normal shadow */
+    z-index: 1000;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <nav class="navbar">
+      <div class="logo">Arnab Samanta</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Education & Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="burger" id="burger">
+        <div>☰</div>
+      </div>
+    </nav>
+
+    <section class="main-section">
+      <h2>Education & Skills</h2>
+
+      <div class="box-container">
+        <div class="box" id="education-box" onclick="toggleSection('education')">Education</div>
+        <div class="box" id="skills-box" onclick="toggleSection('skills')">Skills</div>
+      </div>
+
+      <div id="education" class="sub-boxes">
+        <div class="sub-box">Madhyamik, WBBSE (2020)<br>Radhamohan Pur Vivekananda High School(H.S.)</div>
+        <div class="sub-box">H.S., WBCHSE (2022)<br>Radhamohan Pur Vivekananda High School(H.S.)</div>
+        <div class="sub-box">B.Tech In Computer Science & Engineering(2022-2026)<br>College Of Engineering And Management, Kolaghat</div>
+      </div>
+
+      <div id="skills" class="sub-boxes">
+        <div class="sub-box">Languages<br>Html,Css,JavaScript,Php,Python,C,Java</div>
+        <div class="sub-box">Technologies/Frameworks<br>React.js,Node.js,Express.js,Bootstrap,MongoDB,MySQL</div>
+        <div class="sub-box">Tools<br>VS Code,Git & GitHub,WAMP</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Arnab. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleSection(id) {
+      const allSections = document.querySelectorAll('.sub-boxes');
+      const clickedSection = document.getElementById(id);
+
+      allSections.forEach(section => {
+        if (section.id === id) {
+          section.style.display = (section.style.display === 'flex') ? 'none' : 'flex';
+          // Toggle 'active' class on the clicked box for visual feedback if needed
+          document.getElementById(id + '-box').classList.toggle('active');
+        } else {
+          section.style.display = 'none';
+          document.getElementById(section.id + '-box').classList.remove('active');
+        }
+      });
+    }
+
+    // Close open tabs when clicking outside
+    document.addEventListener('click', (event) => {
+      const educationBox = document.getElementById('education-box');
+      const skillsBox = document.getElementById('skills-box');
+      const educationSubBoxes = document.getElementById('education');
+      const skillsSubBoxes = document.getElementById('skills');
+
+      if (educationSubBoxes && !educationBox.contains(event.target) && !educationSubBoxes.contains(event.target)) {
+        educationSubBoxes.style.display = 'none';
+        educationBox.classList.remove('active');
+      }
+      if (skillsSubBoxes && !skillsBox.contains(event.target) && !skillsSubBoxes.contains(event.target)) {
+        skillsSubBoxes.style.display = 'none';
+        skillsBox.classList.remove('active');
+      }
+    });
+
+    // Animate boxes on load
+    document.addEventListener("DOMContentLoaded", () => {
+      const boxes = document.querySelectorAll(".box");
+      boxes.forEach((box, index) => {
+        setTimeout(() => {
+          box.classList.add("animate-in");
+        }, index * 100); // Stagger the animation
+      });
+    });
+  </script>
+</body>
+</html>
